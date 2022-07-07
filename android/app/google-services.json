@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "248961650223",
+    "project_id": "hoopagram",
+    "storage_bucket": "hoopagram.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248961650223:android:2ae80bd96a789ae4d740da",
+        "android_client_info": {
+          "package_name": "com.hoopagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248961650223-e606rl9kd4cc3pv0urvh0kmohq2tte9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hoopagram",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "248961650223-f9hkk81e97bln8stur3pshbsb04gb8lp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8gRw0NZrr8ADicbYjmpshvaYoCp3NNHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248961650223-f9hkk81e97bln8stur3pshbsb04gb8lp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

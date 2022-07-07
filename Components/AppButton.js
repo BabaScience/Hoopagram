@@ -4,22 +4,22 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 function AppButton ({
     title='Get Started', 
-    style={}, 
-    textColor = 'blue',
+    containerStyle={}, 
+    textStyle={},
     onPress={onPress}
 }){
     return(
         <TouchableOpacity 
             style={{
             ...styles.container, 
-            ...style,
+            ...containerStyle,
             }}
             activeOpacity={0.9}
             onPress={onPress}
         >
             <Text style={{
                 ...styles.text, 
-                color: textColor,
+                ...textStyle,
             }}
             >{title}</Text>
         </TouchableOpacity>

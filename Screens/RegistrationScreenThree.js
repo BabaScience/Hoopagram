@@ -32,10 +32,12 @@ function RegistrationScreenFinal ({navigation}){
            />
            <AppButton 
                 title='Finish'
-                style={{
+                containerStyle={{
                     backgroundColor: colors.purple_color
                 }}
-                textColor='white'
+                textStyle={{
+                    color: 'white'
+                }}
                 onPress={()=>auth.setSignedIn(true)}
             />
         </View>

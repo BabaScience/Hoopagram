@@ -49,10 +49,12 @@ function LoginScreen ({navigation}){
             <View style={styles.button}>
                     <AppButton 
                         title='Sign in'
-                        style={{
+                        containerStyle={{
                             backgroundColor: colors.purple_color
                         }}
-                        textColor='white'
+                        textStyle={{
+                            color:'white'
+                        }}
                         onPress={()=>{auth.setSignedIn(true)}}
                     />
             </View>

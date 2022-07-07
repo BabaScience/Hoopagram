@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 // import { MaterialIcons } from '@expo/vector-icons';
 
 
 const img = require('../assets/Images/basketball.png')
-function AppChangeablePhoto ({image=img, size=150}){
+function AppChangeablePhoto ({
+    image=img, 
+    size=widthPercentageToDP('30%')
+}){
     return(
         <TouchableOpacity style={{
                 ...styles.container,

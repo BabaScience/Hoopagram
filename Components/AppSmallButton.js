@@ -6,23 +6,23 @@ import { colors } from '../assets/Themes/Colors'
 
 function AppButton ({
     title='Get Started', 
-    style={}, 
-    textColor = 'white',
+    containerStyle={}, 
+    textStyle={},
     onPress={onPress},
 }){
     return(
         <TouchableOpacity 
             style={{
             ...styles.container, 
-            ...style,
-            backgroundColor: colors.purple_color
+            ...containerStyle,
+            // backgroundColor: colors.purple_color
             }}
             activeOpacity={0.9}
             onPress={onPress}
         >
             <Text style={{
                 ...styles.text, 
-                color: textColor,
+                ...textStyle,
             }}
             >{title}</Text>
         </TouchableOpacity>

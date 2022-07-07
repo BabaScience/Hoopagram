@@ -40,10 +40,12 @@ function RegistrationScreenTwo ({navigation}){
             <View style={styles.button}>
                 <AppButton 
                     title='Register now'
-                    style={{
+                    containerStyle={{
                         backgroundColor: colors.purple_color
                     }}
-                    textColor = 'white'
+                    textStyle = {{
+                        color: 'white'
+                    }}
                     onPress={()=>navigation.navigate('RegistrationScreenFinal')}
                 />
             </View>

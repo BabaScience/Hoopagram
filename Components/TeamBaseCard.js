@@ -6,16 +6,17 @@ import {sizes} from '../assets/Themes/Sizes'
 
 
 //const img = require('../assets/Images/court1.jpg')
-function CourtCard ({data, onPress}){
+function TeamBaseCard ({data}){
     return(
         <TouchableOpacity 
             activeOpacity={0.9}
             style={styles.container}
-            onPress={onPress}
-        
+            onPress={() => {
+                ToastAndroid.show('Court Unavailable!', 2000)
+            }}
         >
             <Image 
-                source={data.photo}
+                source={data.image}
                 style={{
                     ...styles.image,
                 }}
@@ -55,4 +56,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CourtCard;
+export default TeamBaseCard;

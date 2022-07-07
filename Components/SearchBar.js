@@ -9,11 +9,12 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-function SearchBar (props){
+function SearchBar ({onPress}){
     return(
         <View style={styles.container}>
             <GooglePlacesAutocomplete 
                 placeholder='Luogo' 
+                onPress={onPress}
 
                 styles={{
                     textInput: {
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 15,
         flexDirection: 'row',
-        width: '90%',
+        width: '95%',
         alignSelf: 'center',
         paddingBottom: 10,
 

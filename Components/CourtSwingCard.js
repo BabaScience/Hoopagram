@@ -1,15 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image , TouchableOpacity} from 'react-native'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 
 
 import {sizes} from '../assets/Themes/Sizes'
+import {colors} from '../assets/Themes/Colors'
 import AppSmallButton from './AppSmallButton'
 
 
-const CourtSwingCard = ({data}) => {
+const CourtSwingCard = ({data, onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity 
+        style={styles.container}
+        onPress={onPress}
+    >
         <Image 
             source={data.photo}
             style={{
@@ -24,9 +28,16 @@ const CourtSwingCard = ({data}) => {
             </View>
             <AppSmallButton
                 title='join'
+                containerStyle={{
+                    backgroundColor: colors.purple_color
+                }}
+                textStyle={{
+                    color: 'white'
+                }}
+
             />
         </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

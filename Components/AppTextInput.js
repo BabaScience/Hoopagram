@@ -31,12 +31,12 @@ function AppTextInput ({
                     borderColor,
                     borderWidth
                 }}>
-                <TextInput 
+                {<TextInput 
                     onFocus={HandleFocus}
                     onBlur={HandleBlur}
                     style={styles.text_input}
                     placeholder={placeholder}
-                    />
+                    />}
             </View>
         </View>
     );

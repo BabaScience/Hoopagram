@@ -14,13 +14,17 @@ import LoginScreen from './Screens/LoginScreen'
 
 import HomeScreen from './Screens/HomeScreen'
 import ProfileScreen from './Screens/ProfileScreen'
+import CourtPostScreen from './Screens/CourtPostsScreen'
+import CourtInformation from './Screens/CourtInformationScreen'
+import CourtRankingScreen from './Screens/CourtRankingScreen'
+import CourtScreen from './Screens/CourtScreen'
 
 
 // NAVIGATIONS
 import AuthNavigation  from './Navigations/AuthNavigation' 
 import MainNavigation from './Navigations/MainNavigation'
 import AppNavigation from './Navigations/AppNavigation'
-
+import CourtNavigation from './Navigations/CourtNavigation'
 
 
 const App = () => {

@@ -17,6 +17,11 @@ import { colors } from '../assets/Themes/Colors';
 
 
 
+// NAVIGATION
+import HomeNavigation from './HomeNavigation';
+
+
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -36,7 +41,7 @@ function MainNavigation (props){
             >
                 <Tab.Screen 
                     name="Home" 
-                    component={HomeScreen} 
+                    component={HomeNavigation} 
                     options={{
                         tabBarIcon: ({color, size}) => (
                             <Image 

@@ -3,7 +3,6 @@ import { View, StyleSheet, StatusBar, Text, SafeAreaView } from 'react-native';
 // import { StatusBar } from 'expo-status-bar';
 
 import AppButton from '../Components/AppButton'
-import AppBackgroundlessButton from '../Components/AppBackgroundlessButton'
 //import AppTitle from '../Components/AppTitle'
 
 import { colors } from '../assets/Themes/Colors';
@@ -23,14 +22,17 @@ function LandingScreen ({navigation}){
             <View style={styles.buttons}>
                 <AppButton
                     title='Get Started'
-                    style={{backgroundColor: 'white'}} 
-                    textColor={colors.purple_color}
+                    containerStyle={{backgroundColor: 'white'}} 
+                    textStyle={{color: colors.purple_color}}
                     onPress={()=>navigation.navigate('RegistrationScreenOne')}
                 />
-                <AppBackgroundlessButton
+                <AppButton
                     title='Sign in' 
-                    style={{backgroundColor: colors.purple_color}} 
-                    textColor='white'
+                    containerStyle={{
+                        backgroundColor: colors.purple_color,
+                        borderWidth: 0
+                    }} 
+                    textStyle={{color: 'white'}}
                     onPress={()=>navigation.navigate('LoginScreen')}
                 />
             </View>
