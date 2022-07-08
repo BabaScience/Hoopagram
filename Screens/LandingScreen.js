@@ -3,7 +3,8 @@ import { View, StyleSheet, StatusBar, Text, SafeAreaView } from 'react-native';
 // import { StatusBar } from 'expo-status-bar';
 
 import AppButton from '../Components/AppButton'
-//import AppTitle from '../Components/AppTitle'
+import AppTitle from '../Components/AppTitle'
+
 
 import { colors } from '../assets/Themes/Colors';
 
@@ -13,11 +14,11 @@ function LandingScreen ({navigation}){
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor={colors.purple_color} />
             <View>
-                {/*<AppTitle 
+                <AppTitle 
                     style={{color: 'white'}}
                     title='hoopagram'
-                />*/}
-                <Text style={{color: 'white'}}>Hoopagram</Text>
+                />
+                {/*<Text style={{color: 'white'}}>Hoopagram</Text>*/}
             </View>
             <View style={styles.buttons}>
                 <AppButton

@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Text } from 'react-native';
 import { colors } from '../assets/Themes/Colors';
 
 
 function AppTextInput ({
     placeholder='Enter Something',
-    title="Title"
+    title="Title",
+    onChangeText=() => {},
+    value = '',
+    showErrMessage=false,
+    errMessage='bla bla bla'
 }){
     const [borderColor, setBorderColor] = React.useState('black')
     const [borderWidth, setBorderWidth] = React.useState(.5)
+    
+    // const [text, onChangeText] = useState('')
+    
     const HandleFocus = () => {
         setBorderColor(colors.purple_color),
         setBorderWidth(1.5)
@@ -31,13 +38,20 @@ function AppTextInput ({
                     borderColor,
                     borderWidth
                 }}>
-                {<TextInput 
+                <TextInput 
                     onFocus={HandleFocus}
                     onBlur={HandleBlur}
                     style={styles.text_input}
                     placeholder={placeholder}
-                    />}
+                    onChangeText={onChangeText}
+                    value={value}
+                    />
             </View>
+            {showErrMessage && (
+                <Text style={styles.errorMessage}>
+                    {errMessage}
+                </Text>
+            )}
         </View>
     );
 }
@@ -64,6 +78,10 @@ const styles = StyleSheet.create({
         paddingLeft: 1,
         paddingBottom: 1,
         color: 'black'
+    },
+    errorMessage: {
+        color: 'red',
+        fontSize: 14
     }
 })
 

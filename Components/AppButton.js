@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 
 function AppButton ({
     title='Get Started', 
     containerStyle={}, 
     textStyle={},
-    onPress={onPress}
+    onPress={onPress},
+    waiting=false
 }){
     return(
         <TouchableOpacity 
@@ -14,21 +16,32 @@ function AppButton ({
             ...styles.container, 
             ...containerStyle,
             }}
-            activeOpacity={0.9}
-            onPress={onPress}
+            activeOpacity={waiting ? 1 : 0.9}
+            touchSoundDisabled={waiting}
+            onPress={waiting ? () => {} : onPress}
         >
-            <Text style={{
-                ...styles.text, 
-                ...textStyle,
-            }}
-            >{title}</Text>
+            {!waiting && (
+                <Text style={{
+                    ...styles.text, 
+                    ...textStyle,
+                }}
+                >
+                        {title}
+                </Text>
+            )}
+            {waiting && (
+                <ActivityIndicator 
+                    size="small" 
+                    color="#fff"
+                />
+            )}
         </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        width: '90%',
+        width: widthPercentageToDP('90%'),
         padding: 14,
         borderRadius: 5,
         borderWidth: .5,

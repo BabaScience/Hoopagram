@@ -4,7 +4,11 @@ import { View, StyleSheet, TextInput, Text } from 'react-native';
 
 function AppTextInput ({
     placeholder='Enter Something',
-    title="Title"
+    title="Title",
+    onChangeText=()=>{},
+    value='',
+    showErrMessage=false,
+    errMessage='bla bla bla'
 }){
     const [borderColor, setBorderColor] = React.useState('black')
     const [borderWidth, setBorderWidth] = React.useState(.5)
@@ -36,8 +40,15 @@ function AppTextInput ({
                     style={styles.text_input}
                     placeholder={placeholder}
                     secureTextEntry
-                    />
+                    onChangeText={onChangeText}
+                    value={value}
+                />
             </View>
+            {showErrMessage && (
+                <Text style={styles.errorMessage}>
+                    {errMessage}
+                </Text>
+            )}
         </View>
     );
 }
@@ -63,6 +74,10 @@ const styles = StyleSheet.create({
         paddingLeft: 1,
         paddingBottom: 1,
         color: 'black'
+    },
+    errorMessage: {
+        color: 'red',
+        fontSize: 14
     }
 })
 

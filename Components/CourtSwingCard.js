@@ -15,7 +15,8 @@ const CourtSwingCard = ({data, onPress}) => {
         onPress={onPress}
     >
         <Image 
-            source={data.photo}
+            source={{uri: data.photo}}
+            
             style={{
                 ...styles.image,
             }}

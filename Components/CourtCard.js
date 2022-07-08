@@ -15,7 +15,7 @@ function CourtCard ({data, onPress}){
         
         >
             <Image 
-                source={data.photo}
+                source={{uri: data.photo}}
                 style={{
                     ...styles.image,
                 }}

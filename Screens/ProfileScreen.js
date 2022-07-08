@@ -1,17 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
+
+
+//  LIBRARIES
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+import auth from '@react-native-firebase/auth'
+
+
+
+
+// STATIC DATA
+import { colors } from '../assets/Themes/Colors';
+
+
+
+
+// CONTEXTS 
+import AuthContext from '../Contexts/AuthContext'; 
+
+
+// COMPONENTS
 import AppChangeablePhoto from '../Components/AppChangeablePhoto';
 import AppMiniTitle from '../Components/AppMiniTitle'
 import AppTextInput from '../Components/AppTextInput';
 import AppButton from '../Components/AppButton';
 import AppSmallButton from '../Components/AppSmallButton';
 
-import { colors } from '../assets/Themes/Colors';
-import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+
 
 
 
 function ProfileScreen ({navigation}){
+    const authContext = useContext(AuthContext)
+
+    function handleSignOut() {
+        auth()
+            .signOut()
+            .then(() => {
+                console.log('User Signed Out!')
+                authContext.setSignedIn(false)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
     return(
         <View style={styles.container}>
             <View style={{
@@ -25,12 +59,13 @@ function ProfileScreen ({navigation}){
                       <Text style={styles.name}>Bamba Ba</Text>
                       <Text style={styles.description}>Ball is life🏀</Text>
                       <AppSmallButton
-                        title='edit profile'
+                        title='sign out'
                         containerStyle={{
                             backgroundColor: 'white',
                             marginTop: heightPercentageToDP('3%')
                         }}
                         textColor='black'
+                        onPress={handleSignOut}
                       />
                     </View>
                 </View>

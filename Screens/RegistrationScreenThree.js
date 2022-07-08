@@ -1,14 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import AppMiniTitle from '../Components/AppMiniTitle';
+
+// LIBRARIES
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
-import InterestComponent from '../Components/InterestComponent';
-import {sports} from '../assets/Data'
-import AppButton from '../Components/AppButton';
+
+
+
+// STATIC DATA
 import { colors } from '../assets/Themes/Colors';
+import {sports} from '../assets/Data'
+
+
+
+// CONTEXTS
 import AuthContext from '../Contexts/AuthContext'
+
+
+
+// COMPONENTS
+import AppButton from '../Components/AppButton';
+import AppMiniTitle from '../Components/AppMiniTitle';
+import InterestComponent from '../Components/InterestComponent';
+
+
+
+
+
+
+
+
 function RegistrationScreenFinal ({navigation}){
-    const auth = React.useContext(AuthContext)
+    const authContext = React.useContext(AuthContext)
+
+    const [interests, setInterests] = useState([])
+
+    function handleIconPressed(icon){
+        let currInterests = interests
+        currInterests.push(icon.name)
+
+        setInterests(currInterests)
+    }
+
+    function handleLogin() {
+        console.log(interests)
+
+        // auth.setSignedIn(true)
+    }
+
     return(
         <View style={styles.container}>
             
@@ -24,7 +62,10 @@ function RegistrationScreenFinal ({navigation}){
            <FlatList 
             data={sports}
             renderItem={({item})=>(
-                <InterestComponent data={item}/>
+                <InterestComponent 
+                    data={item}
+                    onPress={() => handleIconPressed(item)}
+                />
             )}
             numColumns={3}
             showsHorizontalScrollIndicator={false}
@@ -38,7 +79,7 @@ function RegistrationScreenFinal ({navigation}){
                 textStyle={{
                     color: 'white'
                 }}
-                onPress={()=>auth.setSignedIn(true)}
+                onPress={handleLogin}
             />
         </View>
     );

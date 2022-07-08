@@ -1,13 +1,90 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
+
+
+
+// LIBRARIES 
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+import firestore from '@react-native-firebase/firestore'
+
+
+// STATIC DATA
+import { colors } from '../assets/Themes/Colors';
+
+
+
+
+// COMPONENTS
 import AppChangeablePhoto from '../Components/AppChangeablePhoto';
 import AppMiniTitle from '../Components/AppMiniTitle'
 import AppTextInput from '../Components/AppTextInput';
+import AppSecuredTextInput from '../Components/AppSecuredTextInput';
 import AppButton from '../Components/AppButton';
 
-import { colors } from '../assets/Themes/Colors';
-import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+
+
+
+
+// CONTEXTS
+import AuthContext from '../Contexts/AuthContext';
+
+
+
+
+
+
+
+
+
+
+
+
 function RegistrationScreenTwo ({navigation}){
+    const authContext = useContext(AuthContext)
+
+    const [username, setUsername]  = useState('')
+    
+    const [waiting, setWaiting] = useState(false)
+
+
+
+    async function SaveAndMoveOn() {
+        // console.log('Username', username)
+        // console.log('Password', password)
+        setWaiting(true)
+        authContext.setUserName(username)
+        
+
+        // update username to bd
+
+        try {
+            console.log('doc ->' , authContext.currentDocID)
+            const updatedDoc = await firestore()
+                                        .collection('Users')
+                                        .doc(authContext.currentDocID)
+                                        .update({
+                                            'username': username
+                                        })
+                                        .then(() => {
+                                            setWaiting(false)
+                                            authContext.setSignedIn(true)
+                                        })
+                                        .catch(err => {
+                                            throw new err
+                                        })
+            
+        }catch(error){
+            console.error(error)
+        }
+
+
+
+
+
+        
+        // navigation.navigate('RegistrationScreenFinal')
+    }
+
     return(
         <View style={styles.container}>
             <View style={{
@@ -30,11 +107,10 @@ function RegistrationScreenTwo ({navigation}){
                     <AppTextInput 
                         title='Username'
                         placeholder='@hoopagram'
-                        />
-                    <AppTextInput 
-                        title='Password'
-                        placeholder='password'
-                        />
+                        value={username}
+                        onChangeText={setUsername}
+                    />
+                    
                 </View>
             </View>
             <View style={styles.button}>
@@ -46,7 +122,8 @@ function RegistrationScreenTwo ({navigation}){
                     textStyle = {{
                         color: 'white'
                     }}
-                    onPress={()=>navigation.navigate('RegistrationScreenFinal')}
+                    onPress={SaveAndMoveOn}
+                    waiting={waiting}
                 />
             </View>
         </View>

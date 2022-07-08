@@ -39,11 +39,11 @@ function AuthNavigation (props){
                     component={RegistrationScreenTwo} 
                     options={header}
                 />
-                <Stack.Screen 
+                {/*<Stack.Screen 
                     name="RegistrationScreenFinal" 
                     component={RegistrationScreenFinal} 
                     options={header}
-                />
+                />*/}
             </Stack.Navigator>
         </NavigationContainer>
   

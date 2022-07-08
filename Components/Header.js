@@ -2,15 +2,24 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { widthPercentageToDP } from 'react-native-responsive-screen'
 
-
+// STATIC DATA
 import { colors } from '../assets/Themes/Colors'
+
+
+
+
+// COMPONENTS
+import AppTitle from './AppTitle'
+
 
 function  Header({ navigation })  {
   return (
-             <View>
+             <View style={{
+                // backgroundColor: 'yellow',
+             }}>
                 <View style={{
                     flexDirection: 'row', 
-                    //backgroundColor: "red",
+                    // backgroundColor: "red",
                     alignItems: 'center',
                     justifyContent: 'space-between'
                 }}
@@ -56,6 +65,9 @@ export default Header
 
 const styles = StyleSheet.create({
     logo: {
-        paddingLeft: widthPercentageToDP('3%')
+        paddingLeft: widthPercentageToDP('3%'),
+        color: 'black',
+        fontSize: 20,
+        fontWeight: '500'
     }
 })

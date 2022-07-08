@@ -5,11 +5,12 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import { colors } from '../assets/Themes/Colors';
 
 
-function InterestComponent ({data}){
+function InterestComponent ({data, onPress}){
     const [check, setCheck] = React.useState(false)
     return(
         <TouchableOpacity 
-            onPress={()=>setCheck(!check)}
+            onPressOut={()=>setCheck(!check)}
+            onPress={onPress}
             activeOpacity={0.8}
             style={{
                 ...styles.container,
